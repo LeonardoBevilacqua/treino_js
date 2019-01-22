@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pedidos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="treino.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <button id="consultar">Consultar</button>
+        <button id="anterior">Anterior</button>
+        <button id="seguinte">Seguinte</button>
+    </div>
+    <div class="container">
+        <form action="/action_page.php" id="form">
+            <div class="row">
+                <div class="col-25">
+                    <label for="cod_cliente">Cliente: </label>
+                </div>
+                <div class="col-25">
+                    <input type="text" id="cod_cliente" disabled>
+                </div>
+                <div class="col-50">
+                    <input type="text" id="den_cliente" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="saldo">Saldo:</label> 
+                </div>
+                <div class="col-75">
+                    <input type="text" id="saldo" disabled>
+                </div>
+            </div>
+            <button type="button" id="confirmar" class="hidden" onclick="carrega_dados(true)">Confirmar</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Item</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody id="pedidos">
+            <!--tr>
+                <td>1</td>
+                <td>1</td>
+                <td>Teste</td>
+                <td>2</td>
+                <td>20/01/2019</td>
+            </tr-->
+        </tbody>
+    </table>
+
+</body>
+
+</html>
