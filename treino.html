@@ -11,15 +11,17 @@
 </head>
 
 <body>
-    <div id="menu">
-        <button id="consultar">Consultar</button>
-        <button id="anterior">Anterior</button>
-        <button id="seguinte">Seguinte</button>
-    </div>
-    <div id="opcao" class="hidden">
-        <button type="button" id="confirmar" onclick="carrega_dados(true)">Confirmar</button>
-    </div>
     <div class="container">
+        <div class="header">
+            <div id="menu">
+                <button id="consultar">Consultar</button>
+                <button id="anterior">Anterior</button>
+                <button id="seguinte">Seguinte</button>
+            </div>
+            <div id="opcao" class="hidden">
+                <button type="button" id="confirmar" onclick="carrega_dados(true)">Confirmar</button>
+            </div>
+        </div>
         <form action="/action_page.php" id="form">
             <div class="row">
                 <div class="col-25">
@@ -42,28 +44,28 @@
             </div>
             
         </form>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Item</th>
+                    <th>Descrição</th>
+                    <th>Quantidade</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody id="pedidos">
+                <!--tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>Teste</td>
+                    <td>2</td>
+                    <td>20/01/2019</td>
+                </tr-->
+            </tbody>
+        </table>
     </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Item</th>
-                <th>Descrição</th>
-                <th>Quantidade</th>
-                <th>Data</th>
-            </tr>
-        </thead>
-        <tbody id="pedidos">
-            <!--tr>
-                <td>1</td>
-                <td>1</td>
-                <td>Teste</td>
-                <td>2</td>
-                <td>20/01/2019</td>
-            </tr-->
-        </tbody>
-    </table>
 
 </body>
 
