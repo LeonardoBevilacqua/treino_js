@@ -11,10 +11,13 @@
 </head>
 
 <body>
-    <div>
+    <div id="menu">
         <button id="consultar">Consultar</button>
         <button id="anterior">Anterior</button>
         <button id="seguinte">Seguinte</button>
+    </div>
+    <div id="opcao" class="hidden">
+        <button type="button" id="confirmar" onclick="carrega_dados(true)">Confirmar</button>
     </div>
     <div class="container">
         <form action="/action_page.php" id="form">
@@ -37,7 +40,7 @@
                     <input type="text" id="saldo" disabled>
                 </div>
             </div>
-            <button type="button" id="confirmar" class="hidden" onclick="carrega_dados(true)">Confirmar</button>
+            
         </form>
     </div>
 

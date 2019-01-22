@@ -36,7 +36,7 @@ var obj_pedido = [
     },
     {
         codigo : 2,
-        cod_cliente : 1,
+        cod_cliente : 2,
         cod_item: 2,
         quantidade_comprada : 1,
         data : "21/01/2019"
@@ -71,7 +71,7 @@ function carrega_dados(carrega_cliente){
 
     var cliente_pedidos = obj_pedido.filter(x => x.cod_cliente === cliente.codigo);
     document.getElementById("pedidos").innerHTML = "";
-    
+
     for (let i = 0; i < cliente_pedidos.length; i++) {
         var linha       = t_pedidos.insertRow(0);
         
@@ -88,7 +88,8 @@ function carrega_dados(carrega_cliente){
         data.innerHTML        = cliente_pedidos[i].data;        
 
         
-        document.getElementById("confirmar").className = "hidden";
+        document.getElementById("opcao").className = "hidden";
+        document.getElementById("menu").className = "";
         document.getElementById("cod_cliente").disabled  = true;
         m_consulta_ativa = true;
     }           
@@ -97,13 +98,12 @@ function carrega_dados(carrega_cliente){
 
 function consultar() {
     document.getElementById("form").reset();
-    document.getElementById("confirmar").className = "";
+    document.getElementById("opcao").className = "";
+    document.getElementById("menu").className = "hidden";
     document.getElementById("cod_cliente").disabled  = false;
     document.getElementById("pedidos").innerHTML = "";
     m_consulta_ativa = false;
     pos = 0;
-
-    //document.getElementById("confirmar").addEventListener("click", carrega_dados.bind(null, true));
 }
 
 function paginar(funcao) {
