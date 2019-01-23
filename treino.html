@@ -11,6 +11,14 @@
 </head>
 
 <body>
+    <div class="popup-background hidden" id="popup">
+        <div class="popup">
+            <div class="header" id="popup-title"></div>
+            <div class="body" id="popup-body"></div>
+            <div class="footer"><button id="ok">Ok</button></div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <div id="menu">
@@ -57,13 +65,13 @@
                     </tr>
                 </thead>
                 <tbody id="pedidos">
-                    <!--tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>Teste</td>
-                                <td>2</td>
-                                <td>20/01/2019</td>
-                            </tr-->
+                    <tr class="hidden">
+                        <td><input type="text" name="fd_codigo" id="fd_codigo"></td>
+                        <td><input type="text" name="fd_item" id="fd_item"></td>
+                        <td><input type="text" name="fd_descricao" id="fd_descricao"></td>
+                        <td><input type="text" name="fd_quantidade" id="fd_quantidade"></td>
+                        <td><input type="text" name="fd_data" id="fd_data"></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

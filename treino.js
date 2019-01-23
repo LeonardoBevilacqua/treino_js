@@ -108,6 +108,7 @@ function consultar() {
 
 function paginar(funcao) {
     if(!m_consulta_ativa){
+        popup("Alerta", "realize a consulta primeiro!");
         return;
     }
 
@@ -116,7 +117,7 @@ function paginar(funcao) {
             if(pos > 0){
                 pos--;
             }else{
-                alert("Sem dados nessa direção");
+                popup("Alerta", "Sem dados nessa direção");
                 return;
             }
             break;
@@ -124,7 +125,7 @@ function paginar(funcao) {
             if(pos < clientes.length-1){
                 pos++;
             }else{
-                alert("Sem dados nessa direção");
+                popup("Alerta", "Sem dados nessa direção");
                 return;
             }
         default:
@@ -133,8 +134,20 @@ function paginar(funcao) {
     carrega_dados(false);
 }
 
+
+function popup(title, body) {
+    document.getElementById("popup").className = "popup-background";
+    document.getElementById("popup-title").innerText = title;
+    document.getElementById("popup-body").innerText = body;
+}
+
 window.addEventListener('load', function() {     
     document.getElementById("consultar").addEventListener("click", consultar);
     document.getElementById("anterior").addEventListener("click", paginar.bind(null, "anterior"));
     document.getElementById("seguinte").addEventListener("click", paginar.bind(null, "seguinte"));
+    document.getElementById("ok").addEventListener("click", function(){
+        document.getElementById("popup").className = "popup-background hidden";
+        document.getElementById("popup-title").innerText = "";
+        document.getElementById("popup-body").innerText = "";
+    });
  });

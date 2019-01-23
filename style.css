@@ -1,6 +1,39 @@
 * {
     box-sizing: border-box;
- }
+    font-family: Arial, sans-serif;
+}
+
+ body{
+    margin: 0;
+}
+
+ /* popup */
+.popup-background{
+    width: 100vw;
+    height: 100vh;     
+    background-color: rgba(0, 0, 0, 0.63);
+    position: absolute;
+    display: flex;
+}
+
+.popup{
+    background-color: #fff;
+    margin: auto;
+}
+
+.popup > .header{
+    border-bottom: 1px solid #ccc;
+}
+
+.popup > .body{
+    padding: 12px;
+}
+
+.popup > .footer{
+    padding: 6px 0;
+    text-align: center;
+}
+ /* end popup */
 
 .container {
     padding: 20px;
