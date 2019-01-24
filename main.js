@@ -50,7 +50,7 @@ for (let i = 0; i < document.getElementsByClassName("janela").length; i++) {
 function dragElement(element) {
    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
    if (document.getElementById(element.id + "header")) {
-      document.getElementById(element.id + "header").onmousedown = dragMouseDown;
+      document.getElementById(element.id + "header").onpointerdown = dragMouseDown;
    }   
    
    function dragMouseDown(e) {
@@ -59,11 +59,11 @@ function dragElement(element) {
    
       pos3 = e.clientX;
       pos4 = e.clientY;
-      document.onmouseup = closeDragElement;
-      document.ontouchend  = closeDragElement;
-
-      document.onmousemove = elementDrag;
-      document.ontouchmove  = elementDrag;
+      document.onpointerup = closeDragElement;
+      document.onpointermove = elementDrag;
+      
+      //document.ontouchend  = closeDragElement;
+      //document.ontouchmove  = elementDrag;
    }
 
    function elementDrag(e) {
@@ -77,13 +77,16 @@ function dragElement(element) {
 
       element.style.top = (element.offsetTop - pos2) + "px";
       element.style.left = (element.offsetLeft - pos1) + "px";     
+      console.clear();
+      console.log("X: " + element.style.left + " Y: " + element.style.top);
    }
 
    function closeDragElement() {
-      document.onmouseup = null;
-      document.ontouchend  = null;
-      document.onmousemove = null;
-      document.ontouchmove  = null;
+      document.onpointerup = null;      
+      document.onpointermove = null;
+
+      //document.ontouchend  = null;
+      //document.ontouchmove  = null;
    }
 
 }
