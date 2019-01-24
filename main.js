@@ -62,8 +62,10 @@ function dragElement(element) {
       pos3 = e.clientX;
       pos4 = e.clientY;
       document.onmouseup = closeDragElement;
+      document.ontouchend = closeDragElement;
 
       document.onmousemove = elementDrag;
+      document.ontouchstart = elementDrag;
    }
 
    function elementDrag(e) {
@@ -81,7 +83,9 @@ function dragElement(element) {
 
    function closeDragElement() {
       document.onmouseup = null;
+      document.ontouchend = null;
       document.onmousemove = null;
+      document.ontouchstart = null;
    }
 
 }
