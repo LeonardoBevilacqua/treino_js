@@ -61,9 +61,6 @@ function dragElement(element) {
       pos4 = e.clientY;
       document.onpointerup = closeDragElement;
       document.onpointermove = elementDrag;
-      
-      //document.ontouchend  = closeDragElement;
-      //document.ontouchmove  = elementDrag;
    }
 
    function elementDrag(e) {
@@ -77,16 +74,11 @@ function dragElement(element) {
 
       element.style.top = (element.offsetTop - pos2) + "px";
       element.style.left = (element.offsetLeft - pos1) + "px";     
-      console.clear();
-      console.log("X: " + element.style.left + " Y: " + element.style.top);
    }
 
    function closeDragElement() {
       document.onpointerup = null;      
       document.onpointermove = null;
-
-      //document.ontouchend  = null;
-      //document.ontouchmove  = null;
    }
 
 }
