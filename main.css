@@ -116,13 +116,54 @@
   position: absolute;
   border-right: 3px solid #ccc;
   font-family: sans-serif;
+  transition: 0.4s;
+}
+
+.toggle-panel {
+  background-color: #ebe8e8;
+  border: 3px solid #ccc;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  padding: 12px 15px;
+  border-radius: 12px;
+  transition: 0.4s;
+}
+
+.toggle-panel.change {
+  background-color: transparent;
+  border: 3px solid transparent;
+}
+
+.toggle-panel>.bar-1, .toggle-panel>.bar-2, .toggle-panel>.bar-3 {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+.change .bar-1 {
+  -webkit-transform: rotate(-45deg) translate(-4px, 1px);
+  transform: rotate(-45deg) translate(-4px, 1px);
+}
+
+.change .bar-2 {
+  opacity: 0;
+}
+
+.change .bar-3 {
+  -webkit-transform: rotate(45deg) translate(-7px, -5px);
+  transform: rotate(45deg) translate(-7px, -5px);
 }
 
 .left-panel>span {
   display: block;
+  margin-top: 24px;
 }
 
 /* ========================= rounded design ========================= */
+
 .search-bar-rounded {
   display: inline-flex;
   width: 100%;
@@ -145,7 +186,7 @@
   padding: 3px 6px;
   background-color: #ccc;
   border-radius: 12px;
-  outline : none;
+  outline: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -155,7 +196,8 @@
 }
 
 /* ========================= opcoes ========================= */
-.opcoes{
+
+.opcoes {
   background-color: #ccc;
   padding: 3px 0;
   border-radius: 12px;
@@ -164,7 +206,7 @@
   font-size: 13px;
 }
 
-.collapsible{
+.collapsible {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -178,7 +220,9 @@
 }
 
 /* ========================= right-panel ========================= */
+
 .right-panel {
   background-color: yellow;
   height: 100vh;
+  padding-left: 73px;
 }

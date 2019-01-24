@@ -14,7 +14,12 @@
 
 <body>
 
-    <div class="left-panel col-3 col-s-5">
+    <div class="toggle-panel" onclick="toggle_panel(this)">
+        <div class="bar-1"></div>
+        <div class="bar-2"></div>
+        <div class="bar-3"></div>
+    </div>
+    <div class="left-panel" id="left-panel" style="width: 0;  margin-left: -25%;">
         <span>Buscar:</span>
         <div class="search-bar-rounded">
             <input type="text" id="search">
@@ -26,7 +31,7 @@
                     <button type="button" class="collapsible"><i class="fa-li fa fa-plus-square"></i>Teste 1</button>
                     <div class="content">
                         <ul class="fa-ul">
-                            <li><i class="fa-li fa fa-caret-square-right"></i>teste 1</li>
+                            <li><a href="#"><i class="fa-li fa fa-caret-square-right"></i>teste 1</a></li>
                             <li><i class="fa-li fa fa-caret-square-right"></i>teste 2</li>
                             <li><i class="fa-li fa fa-caret-square-right"></i>teste 3</li>
                         </ul>
@@ -45,7 +50,9 @@
 
     </div>
     <div class="right-panel col-12">
-
+        <p>
+            Oi :3
+        </p>
     </div>
     <script src="main.js"></script>
 </body>
