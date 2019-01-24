@@ -45,6 +45,7 @@ function toggle_panel(div) {
 for (let i = 0; i < document.getElementsByClassName("janela").length; i++) {
    const element = document.getElementsByClassName("janela")[i];
    dragElement(element);  
+   element.addEventListener("pointerdown", window_focus.bind(null, element));
 }
 
 function dragElement(element) {
@@ -80,5 +81,15 @@ function dragElement(element) {
       document.onpointerup = null;      
       document.onpointermove = null;
    }
+}
 
+function window_focus(element) {
+   if (element.classList.contains('focus')) {
+      return;
+   }
+   for (let i = 0; i < document.getElementsByClassName("janela").length; i++) {
+      const e = document.getElementsByClassName("janela")[i];
+      e.classList.toggle("focus");
+      
+   }
 }
