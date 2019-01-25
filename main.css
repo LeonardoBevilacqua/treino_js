@@ -8,6 +8,96 @@
   font-family: sans-serif;
 }
 
+table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 12px;
+}
+
+table td, table th {
+  border: 1px solid rgb(218, 216, 216);
+  padding: 8px;
+}
+
+table tr {
+  background-color: #fff;
+}
+
+table tr:hover {
+  background-color: rgb(250, 249, 249);
+}
+
+table th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-align: left;
+  background-color: #9e9e9e;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+label {
+  padding: 6px 6px 6px 0;
+  display: inline-block;
+}
+
+input[type=text], select, textarea, label {
+  font-family: Arial, sans-serif;
+}
+
+/* ========================= popup ========================= */
+.popup-background{
+  width: 100vw;
+  height: 100vh;     
+  background-color: rgba(0, 0, 0, 0.63);
+  position: absolute;
+  display: flex;
+  z-index: 5;
+}
+
+.popup-background.hidden{
+  display: none;
+}
+
+.popup{
+  background-color: #fff;
+  margin: auto;
+}
+
+.popup > .header{
+  border-bottom: 1px solid #ccc;
+}
+
+.popup > .body{
+  padding: 12px;
+}
+
+.popup > .footer{
+  padding: 6px 0;
+  text-align: center;
+}
+
+.popup button {
+  background-color: #d3d3d3;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #9e9e9e;
+}
 /* ========================= responsivel ========================= */
 
 .row::after {
@@ -205,7 +295,7 @@
   padding: 3px 0;
   border-radius: 12px;
   border: 2px solid #9e9e9e;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);  
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .opcoes-link {
@@ -213,11 +303,11 @@
   color: #000;
 }
 
-.opcoes ul{
+.opcoes ul {
   margin-top: 6px;
 }
 
-.opcoes li{
+.opcoes li {
   margin: 2px 0;
 }
 
@@ -241,14 +331,16 @@
   padding-left: 73px;
 }
 
-.janela{
+/* ========================= janela ========================= */
+
+.janela {
   position: absolute;
   z-index: 1;
   background-color: #f1f1f1;
   border: 1px solid #d3d3d3;
 }
 
-.janela.focus{
+.janela.focus {
   z-index: 2;
 }
 
@@ -260,3 +352,30 @@
   background-color: #ccc;
   touch-action: none;
 }
+
+.janela-opcoes {
+  font-size: 2em;
+  padding: 6px 0;
+  background-color: #ebe8e8;
+}
+
+.janela-opcoes>button {
+  padding: 3px 8px;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin: 2px 6px;
+}
+
+.janela-opcoes>button:hover {
+  background-color: #ccc;
+}
+
+.janela-opcoes>button>.fa {
+  color: #4b4b4b;
+}
+
+.janela-opcoes>button>.fa:active {
+  color: #000;
+}
+

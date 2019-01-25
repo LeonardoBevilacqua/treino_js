@@ -34,7 +34,7 @@ function toggle_panel(div) {
       leftPanel.classList.toggle("col-s-5");
 
       leftPanel.style.width = "0";
-      leftPanel.style.marginLeft = "-25%";
+      leftPanel.style.marginLeft = "-100%";
 
    }
 }
