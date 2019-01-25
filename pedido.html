@@ -1,0 +1,56 @@
+<div id="pedido">
+   <div class="janela-opcoes row">
+      <button id="consultar" title="consultar"><i class="fa fa-search-plus"></i></button>
+      <button id="anterior" title="anterior"><i class="fa fa-caret-square-left"></i></button>
+      <button id="seguinte" title="seguinte"><i class="fa fa-caret-square-right"></i></button>
+      <button id="confirmar" title="confirmar" class="hidden"><i class="fa fa-check-circle"></i></button>
+   </div>
+   <div id="janela-body" class="row">
+      <form action="/action_page.php" id="form">
+         <div class="row">
+            <div class="col-3">
+               <label for="cod_cliente">Cliente: </label>
+            </div>
+            <div class="col-3">
+               <input type="text" id="cod_cliente" disabled>
+            </div>
+            <div class="col-6">
+               <input type="text" id="den_cliente" disabled>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-3">
+               <label for="saldo">Saldo:</label>
+            </div>
+            <div class="col-9">
+               <input type="text" id="saldo" disabled>
+            </div>
+         </div>
+      </form>
+
+      <div class="row">
+         <table class="col-12">
+            <thead>
+               <tr>
+                  <th>Codigo</th>
+                  <th>Item</th>
+                  <th>Descrição</th>
+                  <th>Quantidade</th>
+                  <th>Data</th>
+               </tr>
+            </thead>
+            <tbody id="pedidos">
+               <tr class="hidden">
+                  <td><input type="text" name="fd_codigo" id="fd_codigo"></td>
+                  <td><input type="text" name="fd_item" id="fd_item"></td>
+                  <td><input type="text" name="fd_descricao" id="fd_descricao"></td>
+                  <td><input type="text" name="fd_quantidade" id="fd_quantidade"></td>
+                  <td><input type="text" name="fd_data" id="fd_data"></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+<script src="treino.js"></script>
+<script>console.log("yeet");</script>

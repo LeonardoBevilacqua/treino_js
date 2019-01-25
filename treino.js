@@ -154,14 +154,13 @@ function popup(title, body) {
     document.getElementById("popup-body").innerText = body;
 }
 
-window.addEventListener('load', function () {
-    document.getElementById("consultar").addEventListener("click", consultar);
-    document.getElementById("anterior").addEventListener("click", paginar.bind(null, "anterior"));
-    document.getElementById("seguinte").addEventListener("click", paginar.bind(null, "seguinte"));
-    document.getElementById("confirmar").addEventListener("click", carrega_dados.bind(null, true));
-    document.getElementById("ok").addEventListener("click", function () {
-        document.getElementById("popup").className = "popup-background hidden";
-        document.getElementById("popup-title").innerText = "";
-        document.getElementById("popup-body").innerText = "";
-    });
-});
+document.getElementById("consultar").addEventListener("click", consultar);
+document.getElementById("anterior").addEventListener("click", paginar.bind(null, "anterior"));
+document.getElementById("seguinte").addEventListener("click", paginar.bind(null, "seguinte"));
+document.getElementById("confirmar").addEventListener("click", carrega_dados.bind(null, true));
+/*document.getElementById("ok").addEventListener("click", function () {
+    document.getElementById("popup").className = "popup-background hidden";
+    document.getElementById("popup-title").innerText = "";
+    document.getElementById("popup-body").innerText = "";
+});*/
+

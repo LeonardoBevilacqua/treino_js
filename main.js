@@ -103,7 +103,7 @@ function cria_janela(element) {
 
    for (let i = 0; i < coll.length; i++) {
       if (coll[i].classList.contains("active")) {
-         coll[i].click();         
+         coll[i].click();
       }
    }
    document.getElementById("toggle-panel").click();
@@ -126,10 +126,21 @@ function cria_janela(element) {
    janela_header.append(t);
    janela.append(janela_header);
 
-   t = document.createTextNode("Teste");
-   janela.append(t);
+   var janela_body = document.createElement("DIV");
+   janela.append(janela_body);
+
+   //t = document.createTextNode("Teste");
+   //janela.append(t);
+   //janela_body.innerHTML ='<object type="text/html" data="'+nome+'.html" ></object>';
+   fetch(nome + ".html")
+      .then((response) => response.text())
+      .then((html) => {
+         janela_body.write(html);
+      })
+      .catch((error) => {
+         console.warn(error);
+      });
 
    document.getElementById("right-panel").append(janela);
    dragElement(janela);
-   
 }
