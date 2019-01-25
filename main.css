@@ -208,6 +208,19 @@
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);  
 }
 
+.opcoes-link {
+  text-decoration: none;
+  color: #000;
+}
+
+.opcoes ul{
+  margin-top: 6px;
+}
+
+.opcoes li{
+  margin: 2px 0;
+}
+
 .collapsible {
   background-color: transparent;
   border: none;
