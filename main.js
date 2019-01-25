@@ -24,17 +24,17 @@ function toggle_panel(div) {
    var leftPanel = document.getElementById("left-panel");
 
    if (div.classList.contains('change')) {
-      document.getElementById("left-panel").style.width = null;
-      document.getElementById("left-panel").style.marginLeft = null;
+      leftPanel.style.width = null;
+      leftPanel.style.marginLeft = null;
 
-      document.getElementById("left-panel").classList.toggle("col-3");
-      document.getElementById("left-panel").classList.toggle("col-s-5");
+      leftPanel.classList.toggle("col-3");
+      leftPanel.classList.toggle("col-s-5");
    } else {
-      document.getElementById("left-panel").classList.toggle("col-3");
-      document.getElementById("left-panel").classList.toggle("col-s-5");
+      leftPanel.classList.toggle("col-3");
+      leftPanel.classList.toggle("col-s-5");
 
-      document.getElementById("left-panel").style.width = "0";
-      document.getElementById("left-panel").style.marginLeft = "-25%";
+      leftPanel.style.width = "0";
+      leftPanel.style.marginLeft = "-25%";
 
    }
 }
@@ -83,13 +83,13 @@ function dragElement(element) {
    }
 }
 
-function window_focus(element) {   
+function window_focus(element) {
    for (let i = 0; i < document.getElementsByClassName("janela").length; i++) {
       const e = document.getElementsByClassName("janela")[i];
       e.classList.remove("focus");
    }
 
-   element.classList.add('focus');   
+   element.classList.add('focus');
 }
 
 /* ========================= criar janela ========================= */
@@ -100,11 +100,19 @@ for (let i = 0; i < document.getElementsByClassName("opcoes-link").length; i++) 
 
 function cria_janela(element) {
    var nome = element.getAttribute("id").split("-")[1];
-   if(document.getElementById(nome)){
+
+   for (let i = 0; i < coll.length; i++) {
+      if (coll[i].classList.contains("active")) {
+         coll[i].click();         
+      }
+   }
+   document.getElementById("toggle-panel").click();
+
+   if (document.getElementById(nome)) {
       return;
    }
    var t = "";
-   
+
    var janela = document.createElement("DIV");
    janela.addEventListener("pointerdown", window_focus.bind(null, janela));
    janela.setAttribute("id", nome);
@@ -123,6 +131,5 @@ function cria_janela(element) {
 
    document.getElementById("right-panel").append(janela);
    dragElement(janela);
-   
    
 }
