@@ -1,0 +1,14 @@
+[
+    {
+        "codigo": 1,
+        "denominacao": "teste item",
+        "quantidade_estoque": 5,
+        "preco": 2.5
+    },
+    {
+        "codigo": 2,
+        "denominacao": "teste",
+        "quantidade_estoque": 5,
+        "preco": 1.5
+    }
+]

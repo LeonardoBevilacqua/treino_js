@@ -13,6 +13,13 @@
 </head>
 
 <body>
+    <div class="popup-background hidden" id="popup">
+        <div class="popup">
+            <div class="header" id="popup-title"></div>
+            <div class="body" id="popup-body"></div>
+            <div class="footer"><button id="ok" onclick="acao_popup(false)">Ok</button></div>
+        </div>
+    </div>
 
     <div class="toggle-panel" id="toggle-panel" onclick="toggle_panel(this)">
         <div class="bar-1"></div>
@@ -32,7 +39,8 @@
                     <div class="content">
                         <ul class="fa-ul">
                             <li><a href="#" class="opcoes-link" id="link-pedido"><i class="fa-li fa fa-caret-square-right"></i>Pedido</a></li>
-                            <li><a href="#" class="opcoes-link" id="link-janela2"><i class="fa-li fa fa-caret-square-right"></i>Link 2</a></li>
+                            <li><a href="#" class="opcoes-link" id="link-janela2"><i class="fa-li fa fa-caret-square-right"></i>Link
+                                    2</a></li>
                         </ul>
                     </div>
                 </li>

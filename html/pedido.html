@@ -1,10 +1,11 @@
 <div id="pedido">
    <div class="janela-opcoes row">
-      <button id="pedido-consultar" title="consultar" onclick="consultar()"><i class="fa fa-search-plus"></i></button>
-      <button id="pedido-anterior" title="anterior"><i class="fa fa-caret-square-left"></i></button>
-      <button id="pedido-seguinte" title="seguinte"><i class="fa fa-caret-square-right"></i></button>
-      <button id="pedido-confirmar" title="confirmar" class="hidden"><i class="fa fa-check-circle"></i></button>
-      <button id="pedido-sair" title="sair"><i class="fa fa-sign-out-alt"></i></button>
+      <button id="pedido-consultar" class="consultar"        title="consultar" onclick="acao_consultar()"><i class="fa fa-search-plus"></i></button>
+      <button id="pedido-anterior"  class="anterior"         title="anterior"><i class="fa fa-caret-square-left"></i></button>
+      <button id="pedido-seguinte"  class="seguinte"         title="seguinte"><i class="fa fa-caret-square-right"></i></button>
+      <button id="pedido-confirmar" class="hidden confirmar" title="confirmar" onclick="acao_confirmar()"><i class="fa fa-check-circle"></i></button>
+      <button id="pedido-cancelar"  class="hidden cancelar"  title="cancelar"  onclick="acao_cancelar()"><i class="fa fa-times-circle"></i></button>
+      <button id="pedido-sair"      class="sair"             title="sair"      onclick="acao_sair()"><i class="fa fa-sign-out-alt"></i></button>
    </div>
    <div class="row janela-body">
       <form action="/action_page.php" id="form">
@@ -13,7 +14,7 @@
                <label for="cod_cliente">Cliente: </label>
             </div>
             <div class="col-3">
-               <input type="text" id="cod_cliente" class="field" disabled>
+               <input type="text" id="cod_cliente" class="field edit" disabled>
             </div>
             <div class="col-6">
                <input type="text" id="den_cliente" class="field" disabled>

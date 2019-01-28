@@ -1,3 +1,5 @@
+var janela_atual = null;
+var campos = null;
 /* ========================= Lista ========================= */
 var coll = document.getElementsByClassName("collapsible");
 
@@ -90,6 +92,8 @@ function window_focus(element) {
    }
 
    element.classList.add('focus');
+   janela_atual = element;
+   campos = janela_atual.getElementsByClassName("field");
 }
 
 /* ========================= criar janela ========================= */

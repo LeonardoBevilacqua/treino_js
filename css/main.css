@@ -63,7 +63,7 @@ input[type=text], select, textarea, label {
   background-color: rgba(0, 0, 0, 0.63);
   position: absolute;
   display: flex;
-  z-index: 5;
+  z-index: 7;
 }
 
 .popup-background.hidden{
