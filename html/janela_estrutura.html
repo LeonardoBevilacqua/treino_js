@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Janela</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+   <script src="js/main.js"></script>
+</head>
+
+<body>
+   <div class="popup-background hidden" id="popup">
+      <div class="popup">
+         <div class="header" id="popup-title"></div>
+         <div class="body" id="popup-body"></div>
+         <div class="footer"><button id="ok">Ok</button></div>
+      </div>
+   </div>
+
+   <div id="mydiv2" class="janela focus">
+      <div id="mydiv2header" class="janela-header">
+         Titulo
+      </div>
+      <div class="janela-opcoes row">
+         <button id="incluir" title="incluir"><i class="fa fa-file"></i></button>
+         <button id="modificar" title="modificar"><i class="fa fa-file-alt"></i></button>
+         <button id="excluir" title="excluir"><i class="fa fa-trash-alt"></i></button>
+         <button id="consultar" title="consultar"><i class="fa fa-search-plus"></i></button>
+         <button id="anterior" title="anterior"><i class="fa fa-caret-square-left"></i></button>
+         <button id="seguinte" title="seguinte"><i class="fa fa-caret-square-right"></i></button>
+         <button id="informar" title="informar"><i class="fa fa-clipboard-list"></i></button>
+         <button id="listar" title="listar"><i class="fa fa-print"></i></button>
+         <button id="confirmar" title="confirmar" class="hidden"><i class="fa fa-check-circle"></i></button>
+         <button id="cancelar" title="cancelar"><i class="fa fa-times-circle"></i></button>
+         <button id="sair" title="sair"><i class="fa fa-sign-out-alt"></i></button>
+      </div>
+      <div id="janela-body" class="row">
+      </div>
+   </div>
+</body>
+
+</html>
