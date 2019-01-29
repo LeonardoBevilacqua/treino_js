@@ -1,4 +1,5 @@
 var janela_atual = null;
+var id_atual = null;
 var campos = null;
 /* ========================= Lista ========================= */
 var coll = document.getElementsByClassName("collapsible");
@@ -92,6 +93,7 @@ function window_focus(element) {
    }
 
    element.classList.add('focus');
+   id_atual = element.id;
    janela_atual = element;
    campos = janela_atual.getElementsByClassName("field");
 }
@@ -104,7 +106,7 @@ for (let i = 0; i < document.getElementsByClassName("opcoes-link").length; i++) 
 
 function cria_janela(element) {
    var nome = element.getAttribute("id").split("-")[1];
-
+   id_atual = nome;
    for (let i = 0; i < coll.length; i++) {
       if (coll[i].classList.contains("active")) {
          coll[i].click();

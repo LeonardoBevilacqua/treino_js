@@ -1,5 +1,5 @@
 var acao = null;
-var consulta_ativa = false;
+var consulta_ativa = [];
 var pos = 0;
 var search_query = null;
 var url_base = "https://teste-leonardoabevilacqua148955.codeanyapp.com/";
@@ -15,10 +15,10 @@ var acoes = ["incluir",
    "cancelar",
    "sair"];
 
-var dados = [];
+var dados_carregados = [];
 
 function carrega_dados(data) {
-   var url = url_base + data + ".php"
+   var url = url_base + "clientes"/*data*/ + ".php" //obs
    for (let i = 0; i < campos.length; i++) {
       const element = campos[i];
       if (!element.disabled) {
@@ -40,23 +40,24 @@ function carrega_dados(data) {
    xhttp.onreadystatechange = function () {
       if (this.readyState === 4) {
          if (this.status === 200) {
-            dados = JSON.parse(this.responseText);
+            dados_carregados[id_atual] = JSON.parse(this.responseText);
 
-            exibe_dados(Object.values(dados[pos]));
+            exibe_dados(Object.values(dados_carregados[id_atual][pos]));
 
-            consulta_ativa = true;
+            consulta_ativa[id_atual] = true;
             altera_estado_menu();
             altera_estado_campos();
          } else {
-            acao_popup(true, "Erro", "Falha ao carrgar os dados!\nCodigo: " + this.status);
-            console.error(this.statusText);
             altera_estado_menu();
             altera_estado_campos();
+            acao_popup(true, "Erro", "Falha ao carregar os dados!\n");
          }
       }
+      console.log(this.responseText);
    };
    xhttp.open("GET", url, true);
    xhttp.send();
+   xhttp = null;
 }
 
 function exibe_dados(data) {
@@ -103,7 +104,7 @@ function acao_confirmar(button) {
 }
 
 function acao_paginar(funcao) {
-   if (!consulta_ativa) {
+   if (!consulta_ativa[id_atual]) {
       acao_popup(true, "Alerta", "realize a consulta primeiro!");
       return;
    }
@@ -118,7 +119,7 @@ function acao_paginar(funcao) {
          }
          break;
       case acoes[5]:
-         if (pos < dados.length - 1) {
+         if (pos < dados_carregados[id_atual].length - 1) {
             pos++;
          } else {
             acao_popup(true, "Alerta", "Sem dados nessa direção");
@@ -127,7 +128,7 @@ function acao_paginar(funcao) {
       default:
          break;
    }
-   exibe_dados(Object.values(dados[pos]));
+   exibe_dados(Object.values(dados_carregados[id_atual][pos]));
 }
 
 function acao_popup(acao, title, body) {
@@ -143,10 +144,14 @@ function acao_popup(acao, title, body) {
 }
 
 function acao_sair() {
+   console.log(dados_carregados["pedidos"]); //obs
+   delete dados_carregados[id_atual];
+   delete consulta_ativa[id_atual];
+   console.log(dados_carregados["pedidos"]); //obs
    janela_atual.parentNode.removeChild(janela_atual);
 }
 
-/* teste 
+/* teste
 document.getElementById("link-clientes").click();
 document.getElementById("toggle-panel").click();
 */
