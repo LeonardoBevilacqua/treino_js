@@ -2,7 +2,7 @@ var acao = null;
 var consulta_ativa = [];
 var pos = 0;
 var search_query = null;
-var url_base = "https://teste-leonardoabevilacqua148955.codeanyapp.com/";
+var url_base = "https://testes580.azurewebsites.net/";
 var acoes = ["incluir",
    "modificar",
    "excluir",
@@ -18,7 +18,7 @@ var acoes = ["incluir",
 var dados_carregados = [];
 
 function carrega_dados(data) {
-   var url = url_base + "clientes"/*data*/ + ".php" //obs
+   var url = url_base + data + ".php";
    for (let i = 0; i < campos.length; i++) {
       const element = campos[i];
       if (!element.disabled) {
@@ -53,7 +53,6 @@ function carrega_dados(data) {
             acao_popup(true, "Erro", "Falha ao carregar os dados!\n");
          }
       }
-      console.log(this.responseText);
    };
    xhttp.open("GET", url, true);
    xhttp.send();
@@ -144,10 +143,9 @@ function acao_popup(acao, title, body) {
 }
 
 function acao_sair() {
-   console.log(dados_carregados["pedidos"]); //obs
    delete dados_carregados[id_atual];
    delete consulta_ativa[id_atual];
-   console.log(dados_carregados["pedidos"]); //obs
+   id_atual = "";
    janela_atual.parentNode.removeChild(janela_atual);
 }
 
