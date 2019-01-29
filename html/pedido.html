@@ -1,9 +1,9 @@
 <div id="pedido">
    <div class="janela-opcoes row">
       <button id="pedido-consultar" class="consultar"        title="consultar" onclick="acao_consultar()"><i class="fa fa-search-plus"></i></button>
-      <button id="pedido-anterior"  class="anterior"         title="anterior"><i class="fa fa-caret-square-left"></i></button>
-      <button id="pedido-seguinte"  class="seguinte"         title="seguinte"><i class="fa fa-caret-square-right"></i></button>
-      <button id="pedido-confirmar" class="hidden confirmar" title="confirmar" onclick="acao_confirmar()"><i class="fa fa-check-circle"></i></button>
+      <button id="pedido-anterior"  class="anterior"         title="anterior"  onclick="acao_paginar('anterior')"><i class="fa fa-caret-square-left"></i></button>
+      <button id="pedido-seguinte"  class="seguinte"         title="seguinte"  onclick="acao_paginar('seguinte')"><i class="fa fa-caret-square-right"></i></button>
+      <button id="pedido-confirmar" class="hidden confirmar" title="confirmar" onclick="acao_confirmar(this)"><i class="fa fa-check-circle"></i></button>
       <button id="pedido-cancelar"  class="hidden cancelar"  title="cancelar"  onclick="acao_cancelar()"><i class="fa fa-times-circle"></i></button>
       <button id="pedido-sair"      class="sair"             title="sair"      onclick="acao_sair()"><i class="fa fa-sign-out-alt"></i></button>
    </div>

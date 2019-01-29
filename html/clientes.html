@@ -1,0 +1,33 @@
+<div id="clientes">
+   <div class="janela-opcoes row">
+      <button id="clientes-consultar" class="consultar"        title="consultar" onclick="acao_consultar()"><i class="fa fa-search-plus"></i></button>
+      <button id="clientes-anterior"  class="anterior"         title="anterior"  onclick="acao_paginar('anterior')"><i class="fa fa-caret-square-left"></i></button>
+      <button id="clientes-seguinte"  class="seguinte"         title="seguinte"  onclick="acao_paginar('seguinte')"><i class="fa fa-caret-square-right"></i></button>
+      <button id="clientes-confirmar" class="hidden confirmar" title="confirmar" onclick="acao_confirmar(this)"><i class="fa fa-check-circle"></i></button>
+      <button id="clientes-cancelar"  class="hidden cancelar"  title="cancelar"  onclick="acao_cancelar()"><i class="fa fa-times-circle"></i></button>
+      <button id="clientes-sair"      class="sair"             title="sair"      onclick="acao_sair()"><i class="fa fa-sign-out-alt"></i></button>
+   </div>
+   <div class="row janela-body">
+      <form action="" id="form">
+         <div class="row">
+            <div class="col-3">
+               <label for="cod_cliente">Cliente: </label>
+            </div>
+            <div class="col-3">
+               <input type="text" id="cod_cliente" class="field edit" disabled>
+            </div>
+            <div class="col-6">
+               <input type="text" id="den_cliente" class="field" disabled>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-3">
+               <label for="saldo">Saldo:</label>
+            </div>
+            <div class="col-9">
+               <input type="text" id="saldo" class="field" disabled>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
