@@ -1,0 +1,56 @@
+<div id="pedidos">
+   <div class="janela-opcoes row">
+      <button id="pedidos-consultar" class="consultar"        title="consultar" onclick="acao_consultar()"><i class="fa fa-search-plus"></i></button>
+      <button id="pedidos-anterior"  class="anterior"         title="anterior"  onclick="acao_paginar('anterior')"><i class="fa fa-caret-square-left"></i></button>
+      <button id="pedidos-seguinte"  class="seguinte"         title="seguinte"  onclick="acao_paginar('seguinte')"><i class="fa fa-caret-square-right"></i></button>
+      <button id="pedidos-confirmar" class="hidden confirmar" title="confirmar" onclick="acao_confirmar(this)"><i class="fa fa-check-circle"></i></button>
+      <button id="pedidos-cancelar"  class="hidden cancelar"  title="cancelar"  onclick="acao_cancelar()"><i class="fa fa-times-circle"></i></button>
+      <button id="pedidos-sair"      class="sair"             title="sair"      onclick="acao_sair()"><i class="fa fa-sign-out-alt"></i></button>
+   </div>
+   <div class="row janela-body">
+      <form action="/action_page.php" id="form">
+         <div class="row">
+            <div class="col-3">
+               <label for="cod_cliente">Cliente: </label>
+            </div>
+            <div class="col-3">
+               <input type="text" id="cod_cliente" class="field edit" disabled>
+            </div>
+            <div class="col-6">
+               <input type="text" id="den_cliente" class="field" disabled>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-3">
+               <label for="saldo">Saldo:</label>
+            </div>
+            <div class="col-9">
+               <input type="text" id="saldo" class="field" disabled>
+            </div>
+         </div>
+      </form>
+
+      <div class="row">
+         <table class="col-12">
+            <thead>
+               <tr>
+                  <th>Codigo</th>
+                  <th>Item</th>
+                  <th>Descrição</th>
+                  <th>Quantidade</th>
+                  <th>Data</th>
+               </tr>
+            </thead>
+            <tbody id="pedidos" class="grid">
+               <tr class="hidden">
+                  <td><input class="grid-field" type="text" name="fd_codigo" id="fd_codigo"></td>
+                  <td><input class="grid-field" type="text" name="fd_item" id="fd_item"></td>
+                  <td><input class="grid-field" type="text" name="fd_descricao" id="fd_descricao"></td>
+                  <td><input class="grid-field" type="text" name="fd_quantidade" id="fd_quantidade"></td>
+                  <td><input class="grid-field" type="text" name="fd_data" id="fd_data"></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
