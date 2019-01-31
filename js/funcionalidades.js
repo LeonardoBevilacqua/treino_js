@@ -1,6 +1,6 @@
 var acao = null;
 var consulta_ativa = [];
-var pos = 0;
+var pos = [];
 var search_query = null;
 var url_base = "https://testes580.azurewebsites.net/";
 var acoes = ["incluir",
@@ -19,8 +19,8 @@ var dados_carregados = [];
 
 function carrega_dados(data) {
    var url = url_base + data + ".php";
-   for (let i = 0; i < campos.length; i++) {
-      const element = campos[i];
+   for (let i = 0; i < campos[id_atual].length; i++) {
+      const element = campos[id_atual][i];
       if (!element.disabled) {
          if (element.value != "") {
             if (!search_query) {
@@ -36,13 +36,15 @@ function carrega_dados(data) {
       search_query = null;
    }
 
+   pos[id_atual] = 0;
+
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function () {
       if (this.readyState === 4) {
          if (this.status === 200) {
             dados_carregados[id_atual] = JSON.parse(this.responseText);
 
-            exibe_dados(Object.values(dados_carregados[id_atual][pos]));
+            exibe_dados(Object.values(dados_carregados[id_atual][pos[id_atual]]));
 
             consulta_ativa[id_atual] = true;
             altera_estado_menu();
@@ -60,9 +62,29 @@ function carrega_dados(data) {
 }
 
 function exibe_dados(data) {
-   for (let y = 0; y < campos.length; y++) {
-      const field = campos[y];
-      field.value = data[y];
+   var table = document.getElementsByClassName("grid");
+   var table_index = 0;
+   var table_body = null;
+
+   for (let i = 0; i < data.length; i++) {
+      if (Array.isArray(data[i])) {
+         table_body = table[table_index];
+         table_body.innerHTML = "";
+
+         for (let j = 0; j < data[i].length; j++) {
+            var linha = table_body.insertRow(0);
+            var element = data[i][j];
+            element = Object.values(element);
+
+            for (let j = 0; j < element.length; j++) {
+               const e = element[j];
+               linha.insertCell(j).innerHTML = e;
+            }
+         }
+      } else {
+         const field = campos[id_atual][i];
+         field.value = data[i];
+      }
    }
 }
 
@@ -77,15 +99,28 @@ function altera_estado_menu() {
 }
 
 function altera_estado_campos() {
-   for (let i = 0; i < campos.length; i++) {
-      const element = campos[i];
+   for (let i = 0; i < campos[id_atual].length; i++) {
+      const element = campos[id_atual][i];
       if (element.className.includes("edit")) {
          element.disabled = !element.disabled;
       }
    }
 }
 
+function limpa_dados_tela() {
+   for (let i = 0; i < document.getElementsByClassName("grid").length; i++) {
+      const element = document.getElementsByClassName("grid")[i];
+      element.innerHTML = ""
+   };
+
+   for (let i = 0; i < campos[id_atual].length; i++) {
+      const element = campos[id_atual][i];
+      element.value = "";      
+   };
+}
+
 function acao_consultar() {
+   limpa_dados_tela();
    altera_estado_menu();
    altera_estado_campos();
    acao = acoes[3];
@@ -110,16 +145,16 @@ function acao_paginar(funcao) {
 
    switch (funcao) {
       case acoes[4]:
-         if (pos > 0) {
-            pos--;
+         if (pos[id_atual] > 0) {
+            pos[id_atual]--;
          } else {
             acao_popup(true, "Alerta", "Sem dados nessa direção");
             return;
          }
          break;
       case acoes[5]:
-         if (pos < dados_carregados[id_atual].length - 1) {
-            pos++;
+         if (pos[id_atual] < dados_carregados[id_atual].length - 1) {
+            pos[id_atual]++;
          } else {
             acao_popup(true, "Alerta", "Sem dados nessa direção");
             return;
@@ -127,7 +162,7 @@ function acao_paginar(funcao) {
       default:
          break;
    }
-   exibe_dados(Object.values(dados_carregados[id_atual][pos]));
+   exibe_dados(Object.values(dados_carregados[id_atual][pos[id_atual]]));
 }
 
 function acao_popup(acao, title, body) {
