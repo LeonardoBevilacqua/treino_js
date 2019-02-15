@@ -386,3 +386,11 @@ input[type=text], select, textarea, label {
   background-color: buttonface;
 }
 
+.janela-footer > .error{
+  color: red;
+}
+
+.janela-footer > .message{
+  color: blue;
+}
+
